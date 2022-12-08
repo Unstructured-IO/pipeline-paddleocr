@@ -36,7 +36,7 @@ def pipeline_api(
     ocr = PaddleOCR(lang="en", use_gpu=False)
     result = ocr.ocr(img=np.array(Image.open(file)))
 
-    return result
+    return json.dumps({"result": result})
 
 
 import json

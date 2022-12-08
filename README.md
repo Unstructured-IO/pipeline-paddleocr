@@ -49,7 +49,7 @@ Give a description of making API calls using example `curl` commands, and exampl
 For example:
 ```
 curl -X 'POST' \
-  'http://localhost:8000/paddleocr/v0.0.1/hello-world' \
+  'http://localhost:8000/paddleocr/v0.0.1/paddleocr' \
   -H 'accept: application/json' \
   -H 'Content-Type: multipart/form-data' \
   -F 'files=@example.pdf' \
