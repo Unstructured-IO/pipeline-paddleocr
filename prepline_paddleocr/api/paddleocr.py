@@ -6,7 +6,7 @@
 import os
 from typing import List, Union
 
-from fastapi import status, FastAPI, File, Form, Request, UploadFile
+from fastapi import status, FastAPI, File, Form, Request, UploadFile, APIRouter
 from slowapi.errors import RateLimitExceeded
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
@@ -16,11 +16,16 @@ limiter = Limiter(key_func=get_remote_address)
 app = FastAPI()
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+router = APIRouter()
 
 RATE_LIMIT = os.environ.get("PIPELINE_API_RATE_LIMIT", "1/second")
 
-# pipeline-api
-message = "hello world"
+
+from paddleocr import PaddleOCR
+
+
+from PIL import Image
+import numpy as np
 
 
 def pipeline_api(
@@ -28,7 +33,10 @@ def pipeline_api(
     file_content_type=None,
     m_some_parameters=[],
 ):
-    return f"{message}: {' '.join(m_some_parameters)}"
+    ocr = PaddleOCR(lang="en", use_gpu=False)
+    result = ocr.ocr(img=np.array(Image.open(file)))
+
+    return result
 
 
 import json
@@ -97,7 +105,7 @@ class MultipartMixedResponse(StreamingResponse):
         await send({"type": "http.response.body", "body": b"", "more_body": False})
 
 
-@app.post("/paddleocr/v0.0.1/hello-world")
+@router.post("/paddleocr/v0.0.1/paddleocr")
 @limiter.limit(RATE_LIMIT)
 async def pipeline_1(
     request: Request,
@@ -157,3 +165,6 @@ async def pipeline_1(
 @app.get("/healthcheck", status_code=status.HTTP_200_OK)
 async def healthcheck(request: Request):
     return {"healthcheck": "HEALTHCHECK STATUS: EVERYTHING OK!"}
+
+
+app.include_router(router)
