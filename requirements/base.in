@@ -1,4 +1,10 @@
 unstructured>=0.2.4
 unstructured-api-tools>=0.4.4
 
+opencv-python==4.5.5.64
+pip-tools>=6.11.0
+ipython>=8.7.0
 ratelimit
+
+paddlepaddle
+paddleocr

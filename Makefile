@@ -74,6 +74,20 @@ run-jupyter:
 run-web-app:
 	 PYTHONPATH=$(realpath .) uvicorn ${PACKAGE_NAME}.api.app:app --reload
 
+
+##########
+# REMOTE #
+##########
+
+
+.PHONY: docker-start-api
+docker-start-api:
+	docker run  -p 8000:8000 --mount type=bind,source=$(realpath .),target=/home/notebook-user/local -t --rm pipeline-family-paddleocr-dev:latest uvicorn prepline_paddleocr.api.paddleocr:app --host 0.0.0.0 --port 8000
+
+.PHONY: docker-start-jupyter
+docker-start-jupyter:
+	docker run  -p 8888:8888 --mount type=bind,source=$(realpath .),target=/home/notebook-user/local -t --rm pipeline-family-paddleocr-dev:latest jupyter-notebook --port 8888 --ip 0.0.0.0 --no-browser --NotebookApp.token='' --NotebookApp.password=''
+
 #################
 # Test and Lint #
 #################
