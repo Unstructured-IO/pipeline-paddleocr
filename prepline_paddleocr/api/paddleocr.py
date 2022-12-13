@@ -23,6 +23,10 @@ RATE_LIMIT = os.environ.get("PIPELINE_API_RATE_LIMIT", "1/second")
 
 # pipeline-api
 from paddleocr import PaddleOCR
+
+import logging
+
+logging.disable()
 from PIL import Image
 import numpy as np
 
@@ -32,8 +36,10 @@ def pipeline_api(
     file_content_type=None,
     m_some_parameters=[],
 ):
-    ocr = PaddleOCR(lang="en", use_gpu=False)
+    ocr = PaddleOCR(lang="en", use_gpu=False, show_log=False)
     result = ocr.ocr(img=np.array(Image.open(file)))
+
+    result = [(p1[0], tuple((p1[1][0], round(p1[1][1], 4)))) for p in result for p1 in p]
 
     return json.dumps({"result": result})
 
