@@ -99,7 +99,15 @@ if __name__ == "__main__":
             nonmatching_nbs.append(str(fn))
             nb_json = json.dumps(nb.dict(), indent=2, sort_keys=True)
             modified_nb_json = json.dumps(modified_nb.dict(), indent=2, sort_keys=True)
-            sys.stderr.writelines((difflib.unified_diff(nb_json.splitlines(keepends=True), modified_nb_json.splitlines(keepends=True))))
+            sys.stderr.write(f"The following diff shows the modifications made to {fn}")
+            sys.stderr.writelines(
+                (
+                    difflib.unified_diff(
+                        nb_json.splitlines(keepends=True),
+                        modified_nb_json.splitlines(keepends=True),
+                    )
+                )
+            )
         if not check:
             nbformat.write(modified_nb, fn)
 
