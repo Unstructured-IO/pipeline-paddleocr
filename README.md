@@ -23,6 +23,8 @@ The pipeline works on x86\_64 cpus.
 	`pyenv  virtualenv 3.8.15 paddleocr` <br />
 	`pyenv activate paddleocr`
 
+* If you are on a Mac with an M1 chip, run `brew install mupdf swig freetype` to install
+  required non-Python dependencies.
 * Run `make install`
 * Start a local jupyter notebook server with `make run-jupyter` <br />
 	**OR** <br />
