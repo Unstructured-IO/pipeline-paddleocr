@@ -18,7 +18,7 @@
 
 
 This pipeline processes input image documents in the English language using [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR).
-The pipeline works on `x86\_64` cpus.
+The pipeline works on `x86_64` cpus.
 
 ## Developer Quick Start
 
