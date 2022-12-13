@@ -3,26 +3,12 @@
 </h3>
 
 <h3 align="center">
-  <p>Pre-Processing Pipeline for Nothing in Particular</p>
+  <p>Pre-Processing OCR Pipeline for PaddleOCR</p>
 </h3>
 
 
-The description for the pipeline repository goes here.
-The API is hosted at `https://api.unstructured.io`.
-
-### TODO list after generating repo from cookiecutter template:
-
-- [ ] `git init`
-- [ ] Update the pipeline name and description in `README.md` (this file)
-- [ ] In a fresh Python environment, run `pip install pip-tools`
-- [ ] Add any additional requirements you need to `requirements/base.in` and run `make pip-compile`
-- [ ] Run `make install`
-- [ ] Create a preprocessing pipeline notebook in pipeline-notebooks relevant to your project. A barebones sample notebook `pipeline-notebooks/pipeline-hello-world.ipynb` is provided for reference
-- [ ] Generate the API with `make generate-api`
-- [ ] Update `README.md` (this file) with examples of using the API and python code.
-- [ ] Add tests in `test_paddleocr`
-- [ ] Delete this checklist and commit changes
-- [ ] If needed, install additional dependencies in the `Dockerfile`. Note that the Dockerfile is provided for convenience and is not a hard requirement for local development. If that convenience provides little value to your audience, removal of the Dockerfile is another option.
+This pipeline processes input image documents in the English language using [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR).
+The pipeline works on x86\_64 cpus.
 
 ## Developer Quick Start
 
