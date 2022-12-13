@@ -19,11 +19,11 @@
 
 
 This pipeline processes input image documents in the English language using [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR).
-The pipeline works on x86\_64 cpus.
+The pipeline works on `x86\_64` cpus.
 
 ## Developer Quick Start
 
-* Using `pyenv` to manage virtualenv's is recommended
+* Using `pyenv` to manage virtualenvs is recommended
 	* Mac install instructions. See [here](https://github.com/Unstructured-IO/community#mac--homebrew) for more detailed instructions.
 		* `brew install pyenv-virtualenv`
 	  * `pyenv install 3.8.15`
