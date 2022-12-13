@@ -2,8 +2,10 @@
 
 import argparse
 from copy import deepcopy
+import json
 import difflib
 from pathlib import Path
+import sys
 from typing import List, Tuple, Union
 
 from nbdev import clean
@@ -95,16 +97,15 @@ if __name__ == "__main__":
         clean.clean_nb(modified_nb, allowed_cell_metadata_keys=["tags"])
         if nb != modified_nb:
             nonmatching_nbs.append(str(fn))
-            print(f"Diff of unmatched notebook {fn}")
-            print("".join(difflib.context_diff(nb, modified_nb, fromfile=f"{fn}", tofile=f"{fn}-clean")))
+            nb_json = json.dumps(nb.dict(), indent=2, sort_keys=True)
+            modified_nb_json = json.dumps(modified_nb.dict(), indent=2, sort_keys=True)
+            sys.stderr.writelines((difflib.unified_diff(nb_json.splitlines(keepends=True), modified_nb_json.splitlines(keepends=True))))
         if not check:
             nbformat.write(modified_nb, fn)
 
     summary_str, details_str = to_results_str(fns, nonmatching_nbs)
     print(summary_str)
     if check:
-        import sys
-
         sys.stderr.write(details_str)
         if nonmatching_nbs:
             sys.exit(1)
