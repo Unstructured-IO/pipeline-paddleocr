@@ -2,8 +2,8 @@
 
 import argparse
 from copy import deepcopy
-import json
 import difflib
+import json
 from pathlib import Path
 import sys
 from typing import List, Tuple, Union
