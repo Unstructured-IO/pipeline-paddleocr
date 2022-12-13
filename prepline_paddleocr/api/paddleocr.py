@@ -21,9 +21,8 @@ router = APIRouter()
 RATE_LIMIT = os.environ.get("PIPELINE_API_RATE_LIMIT", "1/second")
 
 
+# pipeline-api
 from paddleocr import PaddleOCR
-
-
 from PIL import Image
 import numpy as np
 
