@@ -2,6 +2,7 @@
 
 import argparse
 from copy import deepcopy
+import difflib
 from pathlib import Path
 from typing import List, Tuple, Union
 
@@ -94,6 +95,8 @@ if __name__ == "__main__":
         clean.clean_nb(modified_nb, allowed_cell_metadata_keys=["tags"])
         if nb != modified_nb:
             nonmatching_nbs.append(str(fn))
+            print(f"Diff of unmatched notebook {fn}")
+            print("".join(difflib.context_diff(nb, modified_nb, fromfile=f"{fn}", tofile=f"{fn}-clean")))
         if not check:
             nbformat.write(modified_nb, fn)
 
