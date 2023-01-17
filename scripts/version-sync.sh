@@ -126,7 +126,6 @@ for i in "${!FILES_TO_CHECK[@]}"; do
         if [ "$(printf '%s\n' "$REQUIRED_VERSION" "$CURRENT_VERSION" | sort -V | head -n1)" != "$REQUIRED_VERSION" ]; then
             echo "sed version must be >= ${REQUIRED_VERSION}" && exit 1
         fi
-
         sed -E -r "s/$RE_SEMVER/$UPDATED_VERSION/" "$FILE_TO_CHANGE" > "$TMPFILE"
         if [ $CHECK == 1 ];
         then
