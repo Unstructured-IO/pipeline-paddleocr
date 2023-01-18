@@ -6,7 +6,7 @@ FROM centos:centos7.9.2009
 #             https://mybinder.readthedocs.io/en/latest/tutorials/dockerfile.html
 ARG NB_USER=notebook-user
 ARG NB_UID=1000
-ARG PIP_VERSION
+ARG PIP_VERSION=22.3.1
 ARG PIPELINE_PACKAGE
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -48,6 +48,6 @@ COPY img/ img/
 
 #RUN echo 'export LD_LIBRARY_PATH=/usr/local/lib' >> ~/.bashrc
 
-RUN python3 -m pip install --no-cache -r requirements-base.txt \
-  && python3 -m pip install --no-cache -r requirements-dev.txt
-
+RUN python3.8 -m pip install pip==${PIP_VERSION} \
+  && pip3.8 install --no-cache -r requirements-base.txt \
+  && pip3.8 install --no-cache -r requirements-dev.txt
