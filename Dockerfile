@@ -48,6 +48,6 @@ COPY img/ img/
 
 #RUN echo 'export LD_LIBRARY_PATH=/usr/local/lib' >> ~/.bashrc
 
-RUN python3 -m pip install --no-cache -r requirements-base.txt \
-  && python3 -m pip install --no-cache -r requirements-dev.txt
-
+RUN python3.8 -m pip install pip==${PIP_VERSION} \
+  && pip3.8 install --no-cache -r requirements-base.txt \
+  && pip3.8 install --no-cache -r requirements-dev.txt
