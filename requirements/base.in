@@ -8,3 +8,4 @@ ratelimit
 
 paddlepaddle
 paddleocr
+werkzeug>=2.2.3
