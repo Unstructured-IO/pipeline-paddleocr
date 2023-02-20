@@ -9,3 +9,10 @@ ratelimit
 paddlepaddle
 paddleocr
 werkzeug>=2.2.3
+future>=0.18.3
+jupyter-core>=4.11.2
+#protobuf>=3.20.2
+#starlette>=0.25.0
+IPython>=8.10
+wheel>=0.38.1
+pytest>=7.2.0

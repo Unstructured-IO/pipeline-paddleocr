@@ -15,7 +15,9 @@ asttokens==2.2.1
 attrdict==2.0.1
     # via paddleocr
 attrs==22.1.0
-    # via jsonschema
+    # via
+    #   jsonschema
+    #   pytest
 babel==2.11.0
     # via flask-babel
 backcall==0.2.0
@@ -65,6 +67,8 @@ entrypoints==0.4
     # via jupyter-client
 et-xmlfile==1.1.0
     # via openpyxl
+exceptiongroup==1.1.0
+    # via pytest
 executing==1.2.0
     # via stack-data
 fastapi==0.85.0
@@ -86,8 +90,10 @@ fonttools==4.38.0
     #   matplotlib
     #   paddleocr
     #   pdf2docx
-future==0.18.2
-    # via bce-python-sdk
+future==0.18.3
+    # via
+    #   -r requirements/base.in
+    #   bce-python-sdk
 h11==0.13.0
     # via uvicorn
 httptools==0.5.0
@@ -106,7 +112,9 @@ importlib-metadata==5.0.0
     # via
     #   flask
     #   nbconvert
-ipython==8.7.0
+iniconfig==2.0.0
+    # via pytest
+ipython==8.10.0
     # via -r requirements/base.in
 itsdangerous==2.1.2
     # via flask
@@ -124,8 +132,9 @@ jsonschema==4.16.0
     # via nbformat
 jupyter-client==7.3.5
     # via nbclient
-jupyter-core==4.11.1
+jupyter-core==5.2.0
     # via
+    #   -r requirements/base.in
     #   jupyter-client
     #   nbconvert
     #   nbformat
@@ -214,6 +223,7 @@ packaging==21.3
     #   build
     #   matplotlib
     #   nbconvert
+    #   pytest
     #   scikit-image
     #   visualdl
 paddle-bfloat==0.1.7
@@ -246,6 +256,10 @@ pillow==9.3.0
     #   visualdl
 pip-tools==6.11.0
     # via -r requirements/base.in
+platformdirs==3.0.0
+    # via jupyter-core
+pluggy==1.0.0
+    # via pytest
 premailer==3.10.0
     # via paddleocr
 prompt-toolkit==3.0.36
@@ -278,6 +292,8 @@ pyparsing==3.0.9
     #   packaging
 pyrsistent==0.18.1
     # via jsonschema
+pytest==7.2.1
+    # via -r requirements/base.in
 python-dateutil==2.8.2
     # via
     #   jupyter-client
@@ -359,6 +375,7 @@ tomli==2.0.1
     #   build
     #   mypy
     #   pep517
+    #   pytest
 tornado==6.2
     # via jupyter-client
 tqdm==4.64.1
@@ -412,7 +429,9 @@ werkzeug==2.2.3
     #   -r requirements/base.in
     #   flask
 wheel==0.38.4
-    # via pip-tools
+    # via
+    #   -r requirements/base.in
+    #   pip-tools
 zipp==3.10.0
     # via importlib-metadata
 
