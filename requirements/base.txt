@@ -11,7 +11,11 @@ anyio==3.6.1
 astor==0.8.1
     # via paddlepaddle
 asttokens==2.2.1
-    # via stack-data
+    # via
+    #   nbdev
+    #   stack-data
+astunparse==1.6.3
+    # via nbdev
 attrdict==2.0.1
     # via paddleocr
 attrs==22.1.0
@@ -69,10 +73,17 @@ et-xmlfile==1.1.0
     # via openpyxl
 exceptiongroup==1.1.0
     # via pytest
+execnb==0.1.5
+    # via nbdev
 executing==1.2.0
     # via stack-data
 fastapi==0.85.0
     # via unstructured-api-tools
+fastcore==1.5.28
+    # via
+    #   execnb
+    #   ghapi
+    #   nbdev
 fastjsonschema==2.16.2
     # via nbformat
 fire==0.4.0
@@ -94,6 +105,8 @@ future==0.18.3
     # via
     #   -r requirements/base.in
     #   bce-python-sdk
+ghapi==1.0.3
+    # via nbdev
 h11==0.13.0
     # via uvicorn
 httptools==0.5.0
@@ -115,7 +128,9 @@ importlib-metadata==5.0.0
 iniconfig==2.0.0
     # via pytest
 ipython==8.10.0
-    # via -r requirements/base.in
+    # via
+    #   -r requirements/base.in
+    #   execnb
 itsdangerous==2.1.2
     # via flask
 jedi==0.18.2
@@ -176,6 +191,8 @@ nbclient==0.6.8
     # via nbconvert
 nbconvert==7.0.0
     # via unstructured-api-tools
+nbdev==2.3.12
+    # via -r requirements/base.in
 nbformat==5.6.0
     # via
     #   nbclient
@@ -221,6 +238,8 @@ opt-einsum==3.3.0
 packaging==21.3
     # via
     #   build
+    #   fastcore
+    #   ghapi
     #   matplotlib
     #   nbconvert
     #   pytest
@@ -315,7 +334,9 @@ pytz==2022.6
 pywavelets==1.4.1
     # via scikit-image
 pyyaml==6.0
-    # via uvicorn
+    # via
+    #   nbdev
+    #   uvicorn
 pyzmq==24.0.1
     # via jupyter-client
 rapidfuzz==2.13.3
@@ -344,6 +365,7 @@ shapely==1.8.5.post1
 six==1.16.0
     # via
     #   asttokens
+    #   astunparse
     #   attrdict
     #   bce-python-sdk
     #   bleach
@@ -414,6 +436,8 @@ uvloop==0.17.0
     # via uvicorn
 visualdl==2.4.1
     # via paddleocr
+watchdog==2.2.1
+    # via nbdev
 watchfiles==0.17.0
     # via uvicorn
 wcwidth==0.2.5
@@ -431,6 +455,7 @@ werkzeug==2.2.3
 wheel==0.38.4
     # via
     #   -r requirements/base.in
+    #   astunparse
     #   pip-tools
 zipp==3.10.0
     # via importlib-metadata
