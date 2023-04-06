@@ -39,6 +39,7 @@ ENV PATH="/home/${NB_USER}/.local/bin:${PATH}"
 ENV LD_LIBRARY_PATH=/usr/local/lib
 ENV LD_LIBRARY_PATH=/usr/lib64:$LD_LIBRARY_PATH
 
+COPY logger_config.yaml logger_config.yaml
 COPY requirements/dev.txt requirements-dev.txt
 COPY requirements/base.txt requirements-base.txt
 COPY prepline_${PIPELINE_PACKAGE}/ prepline_${PIPELINE_PACKAGE}/
