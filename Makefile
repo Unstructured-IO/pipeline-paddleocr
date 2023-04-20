@@ -169,4 +169,4 @@ version-sync:
 	scripts/version-sync.sh \
 		-s CHANGELOG.md \
 		-f README.md api-release \
-		-f preprocessing-pipeline-family.yaml release \
+		-f preprocessing-pipeline-family.yaml release
