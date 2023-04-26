@@ -1,7 +1,7 @@
 PIPELINE_FAMILY := paddleocr
 PIPELINE_PACKAGE := paddleocr
 PACKAGE_NAME := prepline_${PIPELINE_PACKAGE}
-PIP_VERSION := 23.1
+PIP_VERSION := 23.1.2
 
 .PHONY: help
 help: Makefile
