@@ -21,7 +21,7 @@ backcall==0.2.0
 beautifulsoup4==4.11.1
     # via nbconvert
 black==23.1.0
-    # via -r requirements/dev.in
+    # via -r dev.in
 bleach==5.0.1
     # via nbconvert
 build==0.8.0
@@ -51,12 +51,10 @@ fastcore==1.5.27
     #   nbdev
 fastjsonschema==2.16.2
     # via nbformat
-flake8==6.0.0
-    # via -r requirements/dev.in
+flake8==6.1.0
+    # via -r dev.in
 ghapi==1.0.3
     # via nbdev
-importlib-metadata==6.0.0
-    # via nbconvert
 ipykernel==6.15.3
     # via
     #   ipywidgets
@@ -66,7 +64,7 @@ ipykernel==6.15.3
     #   qtconsole
 ipython==8.7.0
     # via
-    #   -r requirements/dev.in
+    #   -r dev.in
     #   execnb
     #   ipykernel
     #   ipywidgets
@@ -86,7 +84,7 @@ jinja2==3.1.2
 jsonschema==4.16.0
     # via nbformat
 jupyter==1.0.0
-    # via -r requirements/dev.in
+    # via -r dev.in
 jupyter-client==7.3.5
     # via
     #   ipykernel
@@ -122,7 +120,7 @@ mccabe==0.7.0
 mistune==2.0.4
     # via nbconvert
 mypy==0.991
-    # via -r requirements/dev.in
+    # via -r dev.in
 mypy-extensions==0.4.3
     # via
     #   black
@@ -134,7 +132,7 @@ nbconvert==7.0.0
     #   jupyter
     #   notebook
 nbdev==2.3.11
-    # via -r requirements/dev.in
+    # via -r dev.in
 nbformat==5.6.0
     # via
     #   nbclient
@@ -170,7 +168,7 @@ pexpect==4.8.0
 pickleshare==0.7.5
     # via ipython
 pip-tools==6.11.0
-    # via -r requirements/dev.in
+    # via -r dev.in
 platformdirs==2.5.2
     # via black
 prometheus-client==0.14.1
@@ -187,11 +185,11 @@ ptyprocess==0.7.0
     #   terminado
 pure-eval==0.2.2
     # via stack-data
-pycodestyle==2.10.0
+pycodestyle==2.11.0
     # via flake8
 pycparser==2.21
     # via cffi
-pyflakes==3.0.1
+pyflakes==3.1.0
     # via flake8
 pygments==2.13.0
     # via
@@ -231,12 +229,6 @@ terminado==0.15.0
     # via notebook
 tinycss2==1.1.1
     # via nbconvert
-tomli==2.0.1
-    # via
-    #   black
-    #   build
-    #   mypy
-    #   pep517
 tornado==6.2
     # via
     #   ipykernel
@@ -257,9 +249,7 @@ traitlets==5.4.0
     #   notebook
     #   qtconsole
 typing-extensions==4.3.0
-    # via
-    #   black
-    #   mypy
+    # via mypy
 watchdog==2.1.9
     # via nbdev
 wcwidth==0.2.5
@@ -274,8 +264,6 @@ wheel==0.37.1
     #   pip-tools
 widgetsnbextension==4.0.3
     # via ipywidgets
-zipp==3.12.1
-    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
