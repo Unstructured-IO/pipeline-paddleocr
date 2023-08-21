@@ -6,6 +6,7 @@
 #
 anyio==3.6.1
     # via
+    #   httpcore
     #   starlette
     #   watchfiles
 astor==0.8.1
@@ -39,7 +40,10 @@ build==0.9.0
 cachetools==5.2.0
     # via premailer
 certifi==2022.12.7
-    # via requests
+    # via
+    #   httpcore
+    #   httpx
+    #   requests
 charset-normalizer==2.1.1
     # via requests
 click==8.1.3
@@ -71,8 +75,6 @@ entrypoints==0.4
     # via jupyter-client
 et-xmlfile==1.1.0
     # via openpyxl
-exceptiongroup==1.1.0
-    # via pytest
 execnb==0.1.5
     # via nbdev
 executing==1.2.0
@@ -103,17 +105,24 @@ fonttools==4.38.0
     #   pdf2docx
 future==0.18.3
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   bce-python-sdk
 ghapi==1.0.3
     # via nbdev
 h11==0.13.0
-    # via uvicorn
+    # via
+    #   httpcore
+    #   uvicorn
+httpcore==0.17.3
+    # via httpx
 httptools==0.5.0
     # via uvicorn
+httpx==0.24.1
+    # via paddlepaddle
 idna==3.4
     # via
     #   anyio
+    #   httpx
     #   requests
 imageio==2.22.4
     # via
@@ -121,15 +130,11 @@ imageio==2.22.4
     #   scikit-image
 imgaug==0.4.0
     # via paddleocr
-importlib-metadata==5.0.0
-    # via
-    #   flask
-    #   nbconvert
 iniconfig==2.0.0
     # via pytest
 ipython==8.10.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   execnb
 itsdangerous==2.1.2
     # via flask
@@ -149,7 +154,7 @@ jupyter-client==7.3.5
     # via nbclient
 jupyter-core==5.2.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   jupyter-client
     #   nbconvert
     #   nbformat
@@ -192,7 +197,7 @@ nbclient==0.6.8
 nbconvert==7.0.0
     # via unstructured-api-tools
 nbdev==2.3.12
-    # via -r requirements/base.in
+    # via -r base.in
 nbformat==5.6.0
     # via
     #   nbclient
@@ -227,7 +232,7 @@ opencv-contrib-python==4.6.0.66
     # via paddleocr
 opencv-python==4.5.5.64
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   imgaug
     #   paddleocr
     #   pdf2docx
@@ -247,10 +252,10 @@ packaging==21.3
     #   visualdl
 paddle-bfloat==0.1.7
     # via paddlepaddle
-paddleocr==2.6.1.1
-    # via -r requirements/base.in
-paddlepaddle==2.4.0
-    # via -r requirements/base.in
+paddleocr==2.7.0.2
+    # via -r base.in
+paddlepaddle==2.5.1
+    # via -r base.in
 pandas==1.5.2
     # via visualdl
 pandocfilters==1.5.0
@@ -270,11 +275,12 @@ pillow==9.3.0
     #   imageio
     #   imgaug
     #   matplotlib
+    #   paddleocr
     #   paddlepaddle
     #   scikit-image
     #   visualdl
 pip-tools==6.11.0
-    # via -r requirements/base.in
+    # via -r base.in
 platformdirs==3.0.0
     # via jupyter-core
 pluggy==1.0.0
@@ -283,7 +289,7 @@ premailer==3.10.0
     # via paddleocr
 prompt-toolkit==3.0.36
     # via ipython
-protobuf==3.20.0
+protobuf==4.24.1
     # via
     #   paddlepaddle
     #   visualdl
@@ -312,7 +318,7 @@ pyparsing==3.0.9
 pyrsistent==0.18.1
     # via jsonschema
 pytest==7.2.1
-    # via -r requirements/base.in
+    # via -r base.in
 python-dateutil==2.8.2
     # via
     #   jupyter-client
@@ -342,12 +348,11 @@ pyzmq==24.0.1
 rapidfuzz==2.13.3
     # via paddleocr
 ratelimit==2.2.1
-    # via -r requirements/base.in
+    # via -r base.in
 regex==2022.10.31
     # via nltk
 requests==2.28.1
     # via
-    #   paddlepaddle
     #   premailer
     #   visualdl
 scikit-image==0.19.3
@@ -372,14 +377,16 @@ six==1.16.0
     #   fire
     #   imgaug
     #   limits
-    #   paddlepaddle
     #   python-dateutil
     #   python-multipart
     #   visualdl
 slowapi==0.1.6
     # via unstructured-api-tools
 sniffio==1.3.0
-    # via anyio
+    # via
+    #   anyio
+    #   httpcore
+    #   httpx
 soupsieve==2.3.2.post1
     # via beautifulsoup4
 stack-data==0.6.2
@@ -392,12 +399,6 @@ tifffile==2022.10.10
     # via scikit-image
 tinycss2==1.1.1
     # via nbconvert
-tomli==2.0.1
-    # via
-    #   build
-    #   mypy
-    #   pep517
-    #   pytest
 tornado==6.2
     # via jupyter-client
 tqdm==4.64.1
@@ -423,11 +424,10 @@ typing-extensions==4.3.0
     # via
     #   mypy
     #   pydantic
-    #   starlette
 unstructured==0.2.5
-    # via -r requirements/base.in
+    # via -r base.in
 unstructured-api-tools==0.4.6
-    # via -r requirements/base.in
+    # via -r base.in
 urllib3==1.26.13
     # via requests
 uvicorn[standard]==0.18.3
@@ -450,15 +450,13 @@ websockets==10.3
     # via uvicorn
 werkzeug==2.2.3
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   flask
 wheel==0.38.4
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   astunparse
     #   pip-tools
-zipp==3.10.0
-    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
